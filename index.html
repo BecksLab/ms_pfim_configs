@@ -1,0 +1,642 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.6.33">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+<meta name="author" content="Tanya Strydom">
+<meta name="author" content="Andrew P. Beckerman">
+<meta name="dcterms.date" content="2025-03-14">
+<meta name="keywords" content="food web, network construction">
+
+<title>PFIM configs</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for citations */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+  margin-bottom: 0em;
+}
+.hanging-indent div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}</style>
+
+
+<script src="site_libs/clipboard/clipboard.min.js"></script>
+<script src="site_libs/quarto-html/quarto.js"></script>
+<script src="site_libs/quarto-html/popper.min.js"></script>
+<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="site_libs/quarto-html/anchor.min.js"></script>
+<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-07ba0ad10f5680c660e360ac31d2f3b6.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="site_libs/bootstrap/bootstrap-999f58d7018542847c6ca8fcd8d3f2df.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script async="" src="https://hypothes.is/embed.js"></script>
+<script>
+  window.document.addEventListener("DOMContentLoaded", function (_event) {
+    document.body.classList.add('hypothesis-enabled');
+  });
+</script>
+
+
+<meta name="citation_title" content="PFIM configs">
+<meta name="citation_abstract" content="TODO
+">
+<meta name="citation_keywords" content="food web,network construction">
+<meta name="citation_author" content="Tanya Strydom">
+<meta name="citation_author" content="Andrew P. Beckerman">
+<meta name="citation_publication_date" content="2025-03-14">
+<meta name="citation_cover_date" content="2025-03-14">
+<meta name="citation_year" content="2025">
+<meta name="citation_online_date" content="2025-03-14">
+<meta name="citation_language" content="en">
+<meta name="citation_journal_title" content="TBD">
+<meta name="citation_reference" content="citation_title=Extinction cascades, community collapse, and recovery across a Mesozoic hyperthermal event;,citation_author=Alexander M. Dunhill;,citation_author=Karolina Zarzyczny;,citation_author=Jack O. Shaw;,citation_author=Jed W. Atkinson;,citation_author=Crispin T. S. Little;,citation_author=Andrew P. Beckerman;,citation_publication_date=2024-10-04;,citation_cover_date=2024-10-04;,citation_year=2024;,citation_fulltext_html_url=https://www.nature.com/articles/s41467-024-53000-2;,citation_issue=1;,citation_doi=10.1038/s41467-024-53000-2;,citation_volume=15;,citation_language=en;,citation_journal_title=Nature Communications;">
+<meta name="citation_reference" content="citation_title=Shortcomings of reusing species interaction networks created by different sets of researchers;,citation_author=Chris Brimacombe;,citation_author=Korryn Bodner;,citation_author=Matthew Michalska-Smith;,citation_author=Timothée Poisot;,citation_author=Marie-Josée Fortin;,citation_publication_date=2023-03;,citation_cover_date=2023-03;,citation_year=2023;,citation_fulltext_html_url=https://journals.plos.org/plosbiology/article?id=10.1371/journal.pbio.3002068;,citation_issue=4;,citation_doi=10.1371/journal.pbio.3002068;,citation_volume=21;,citation_language=en;,citation_journal_title=PLOS Biology;">
+<meta name="citation_reference" content="citation_title=A framework for reconstructing ancient food webs using functional trait data;,citation_abstract=Food webs provide quantitative insights into the structure and dynamics of ecological communities. Previous work has shown their utility in understanding community responses to modern and ancient perturbations, including anthropogenic change and mass extinctions. However, few ancient food webs have been reconstructed due to difficulties assessing trophic interactions amongst extinct species derived from an incomplete fossil record. We present and assess the Paleo Food web Inference Model (PFIM). PFIM uses functional trait data–predictive of interactions in modern ecosystems and commonly available for fossil organisms–to reconstruct ancient food webs. We test the model by (i) applying it to four modern ecosystems with empirical constrained food webs to directly compare PFIM-constructed networks to their empirical counterparts, (ii) by carefully comparing discrepancies between PFIM-inferred and empirical webs in one of those systems, and (iii) by comparing networks describing feasible trophic interactions (&amp;amp;amp;quot;feasible webs&amp;quot;) with networks to which we superimpose characteristic interaction distributions derived from modern theory (&quot;realized webs&quot;). As a proof of concept, we then apply the method to faunal data from two Cambrian fossil deposits to reconstruct ancient trophic systems. PFIM-inferred feasible food webs successfully predict ~70% of trophic interactions across four modern systems. Furthermore, inferred food webs with enforced interaction distributions (i.e., realized webs) accurately predict ~90% of interactions. Comparisons with a global database of trophic interactions and other food web models, suggest that under sampling of empirical webs accounts for up to 21% of the remaining differences between PFIM and empirical food webs. Food webs can be reasonably approximated by inferring trophic interactions based upon life habit traits. This study provides the foundation to use trait-based inference models across the fossil record to examine ancient food webs and community evolution.;,citation_author=Jack O. Shaw;,citation_author=Alexander M. Dunhill;,citation_author=Andrew P. Beckerman;,citation_author=Jennifer A. Dunne;,citation_author=Pincelli M. Hull;,citation_publication_date=2024-01;,citation_cover_date=2024-01;,citation_year=2024;,citation_doi=10.1101/2024.01.30.578036;,citation_language=en-US;,citation_publisher=bioRxiv;">
+<meta name="citation_reference" content="citation_title=Extinction cascades and catastrophe in ancient food webs;,citation_author=Peter D. Roopnarine;,citation_publication_date=2006;,citation_cover_date=2006;,citation_year=2006;,citation_fulltext_html_url=https://www.jstor.org/stable/4096814;,citation_issue=1;,citation_volume=32;,citation_journal_title=Paleobiology;">
+<meta name="citation_reference" content="citation_title=Size, foraging, and food web structure;,citation_author=Owen L. Petchey;,citation_author=Andrew P. Beckerman;,citation_author=Jens O. Riede;,citation_author=Philip H. Warren;,citation_publication_date=2008-03-18;,citation_cover_date=2008-03-18;,citation_year=2008;,citation_fulltext_html_url=https://pnas.org/doi/full/10.1073/pnas.0710672105;,citation_issue=11;,citation_doi=10.1073/pnas.0710672105;,citation_volume=105;,citation_language=en;,citation_journal_title=Proceedings of the National Academy of Sciences;">
+<meta name="citation_reference" content="citation_title=Modeling food webs: Exploring unexplained structure using latent traits.;,citation_author=Rudolf&nbsp;Philippe Rohr;,citation_author=Heike Scherer;,citation_author=Patrik Kehrli;,citation_author=Christian Mazza;,citation_author=Louis-Félix Bersier;,citation_publication_date=2010-08;,citation_cover_date=2010-08;,citation_year=2010;,citation_fulltext_html_url=https://www.journals.uchicago.edu/doi/10.1086/653667;,citation_issue=2;,citation_doi=10.1086/653667;,citation_volume=176;,citation_journal_title=The American Naturalist;">
+<meta name="citation_reference" content="citation_title=Collapse of an ecological network in ancient egypt;,citation_author=Justin D. Yeakel;,citation_author=Mathias M. Pires;,citation_author=Lars Rudolf;,citation_author=Nathaniel J. Dominy;,citation_author=Paul L. Koch;,citation_author=Paulo R. Guimarães;,citation_author=Thilo Gross;,citation_publication_date=2014-10;,citation_cover_date=2014-10;,citation_year=2014;,citation_issue=40;,citation_doi=10.1073/pnas.1408471111;,citation_volume=111;,citation_journal_title=PNAS;">
+<meta name="citation_reference" content="citation_title=Simple rules yield complex food webs;,citation_author=Richard J. Williams;,citation_author=Neo D. Martinez;,citation_publication_date=2000-03;,citation_cover_date=2000-03;,citation_year=2000;,citation_fulltext_html_url=https://www.nature.com/articles/35004572;,citation_issue=6774;,citation_doi=10.1038/35004572;,citation_volume=404;,citation_language=en;,citation_journal_title=Nature;">
+<meta name="citation_reference" content="citation_title=Success and its limits among structural models of complex food webs;,citation_author=Richard J. Williams;,citation_author=Neo D. Martinez;,citation_publication_date=2008-05;,citation_cover_date=2008-05;,citation_year=2008;,citation_issue=3;,citation_doi=10.1111/j.1365-2656.2008.01362.x;,citation_volume=77;,citation_language=eng;,citation_journal_title=The Journal of Animal Ecology;">
+<meta name="citation_reference" content="citation_title=Graph embedding and transfer learning can help predict potential species interaction networks despite data limitations;,citation_author=Tanya Strydom;,citation_author=Salomé Bouskila;,citation_author=Francis Banville;,citation_author=Ceres Barros;,citation_author=Dominique Caron;,citation_author=Maxwell J. Farrell;,citation_author=Marie-Josée Fortin;,citation_author=Benjamin Mercier;,citation_author=Laura J. Pollock;,citation_author=Rogini Runghen;,citation_author=Giulio V. Dalla Riva;,citation_author=Timothée Poisot;,citation_publication_date=2023;,citation_cover_date=2023;,citation_year=2023;,citation_fulltext_html_url=https://onlinelibrary.wiley.com/doi/abs/10.1111/2041-210X.14228;,citation_issue=12;,citation_doi=10.1111/2041-210X.14228;,citation_volume=14;,citation_language=en;,citation_journal_title=Methods in Ecology and Evolution;">
+<meta name="citation_reference" content="citation_title=Addressing the Eltonian shortfall with trait-based interaction models;,citation_author=Dominique Caron;,citation_author=Luigi Maiorano;,citation_author=Wilfried Thuiller;,citation_author=Laura J. Pollock;,citation_publication_date=2022;,citation_cover_date=2022;,citation_year=2022;,citation_fulltext_html_url=https://onlinelibrary.wiley.com/doi/abs/10.1111/ele.13966;,citation_issue=4;,citation_doi=10.1111/ele.13966;,citation_volume=25;,citation_language=en;,citation_journal_title=Ecology Letters;">
+<meta name="citation_reference" content="citation_title=Collapse of terrestrial mammal food webs since the Late Pleistocene;,citation_author=Evan C. Fricke;,citation_author=Chia Hsieh;,citation_author=Owen Middleton;,citation_author=Daniel Gorczynski;,citation_author=Caroline D. Cappello;,citation_author=Oscar Sanisidro;,citation_author=John Rowan;,citation_author=Jens-Christian Svenning;,citation_author=Lydia Beaudrot;,citation_publication_date=2022-08-26;,citation_cover_date=2022-08-26;,citation_year=2022;,citation_fulltext_html_url=http://dx.doi.org/10.1126/science.abn4012;,citation_issue=6609;,citation_doi=10.1126/science.abn4012;,citation_volume=377;,citation_language=en;,citation_journal_title=Science;">
+<meta name="citation_reference" content="citation_title=Ecological Modelling of Paleocommunity Food Webs;,citation_author=Peter D Roopnarine;,citation_publication_date=2017;,citation_cover_date=2017;,citation_year=2017;,citation_language=en;,citation_inbook_title=undefined;">
+<meta name="citation_reference" content="citation_title=Autecology and the Filling of Ecospace: Key Metazoan Radiations;,citation_author=Richard K. Bambach;,citation_author=Andrew M. Bush;,citation_author=Douglas H. Erwin;,citation_publication_date=2007;,citation_cover_date=2007;,citation_year=2007;,citation_fulltext_html_url=https://onlinelibrary.wiley.com/doi/abs/10.1111/j.1475-4983.2006.00611.x;,citation_issue=1;,citation_doi=10.1111/j.1475-4983.2006.00611.x;,citation_volume=50;,citation_language=en;,citation_journal_title=Palaeontology;">
+<meta name="citation_reference" content="citation_title=Inferring predator-prey interactions in food webs;,citation_author=Justin PF Pomeranz;,citation_author=Ross M. Thompson;,citation_author=Timothée Poisot;,citation_author=Jon S. Harding;,citation_publication_date=2018;,citation_cover_date=2018;,citation_year=2018;,citation_fulltext_html_url=https://besjournals.onlinelibrary.wiley.com/doi/abs/10.1111/2041-210X.13125;,citation_issue=ja;,citation_doi=10.1111/2041-210X.13125;,citation_volume=0;,citation_language=en;,citation_journal_title=Methods in Ecology and Evolution;">
+<meta name="citation_reference" content="citation_title=SVD entropy reveals the high complexity of ecological networks;,citation_author=Tanya Strydom;,citation_author=Giulio V. Dalla Riva;,citation_author=Timothée Poisot;,citation_publication_date=2021;,citation_cover_date=2021;,citation_year=2021;,citation_fulltext_html_url=https://www.frontiersin.org/articles/10.3389/fevo.2021.623141/full;,citation_doi=10.3389/fevo.2021.623141;,citation_volume=9;,citation_language=en-US;,citation_journal_title=Frontiers in Ecology and Evolution;">
+<meta name="citation_reference" content="citation_title=Network motifs: Simple building blocks of complex networks;,citation_author=R. Milo;,citation_author=S. Shen-Orr;,citation_author=S. Itzkovitz;,citation_author=N. Kashtan;,citation_author=D. Chklovskii;,citation_author=U. Alon;,citation_publication_date=2002-10-25;,citation_cover_date=2002-10-25;,citation_year=2002;,citation_fulltext_html_url=https://www.science.org/doi/10.1126/science.298.5594.824;,citation_issue=5594;,citation_doi=10.1126/science.298.5594.824;,citation_volume=298;,citation_journal_title=Science;">
+<meta name="citation_reference" content="citation_title=Evidence for the existence of a robust pattern of prey selection in food webs;,citation_author=Daniel B Stouffer;,citation_author=Juan Camacho;,citation_author=Wenxin Jiang;,citation_author=Luís A Nunes Amaral;,citation_publication_date=2007-06;,citation_cover_date=2007-06;,citation_year=2007;,citation_issue=1621;,citation_doi=10.1098/rspb.2007.0571;,citation_volume=274;,citation_journal_title=Proceedings of the Royal Society B: Biological Sciences;">
+<meta name="citation_reference" content="citation_title=Success and its limits among structural models of complex food webs;,citation_author=Richard J. Williams;,citation_author=Neo D. Martinez;,citation_publication_date=2008-05;,citation_cover_date=2008-05;,citation_year=2008;,citation_issue=3;,citation_doi=10.1111/j.1365-2656.2008.01362.x;,citation_volume=77;,citation_language=eng;,citation_journal_title=The Journal of Animal Ecology;">
+<meta name="citation_reference" content="citation_title=Size, foraging, and food web structure;,citation_author=Owen L. Petchey;,citation_author=Andrew P. Beckerman;,citation_author=Jens O. Riede;,citation_author=Philip H. Warren;,citation_publication_date=2008-03-18;,citation_cover_date=2008-03-18;,citation_year=2008;,citation_fulltext_html_url=https://pnas.org/doi/full/10.1073/pnas.0710672105;,citation_issue=11;,citation_doi=10.1073/pnas.0710672105;,citation_volume=105;,citation_language=en;,citation_journal_title=Proceedings of the National Academy of Sciences;">
+<meta name="citation_reference" content="citation_title=Constant connectance in community food webs;,citation_author=Neo D. Martinez;,citation_publication_date=1992;,citation_cover_date=1992;,citation_year=1992;,citation_fulltext_html_url=http://www.jstor.org/stable/2462337;,citation_issue=6;,citation_volume=139;,citation_journal_title=The American Naturalist;">
+<meta name="citation_reference" content="citation_title=Analysing ecological networks of species interactions;,citation_author=Eva Delmas;,citation_author=Mathilde Besson;,citation_author=Marie-Hélène Brice;,citation_author=Laura A. Burkle;,citation_author=Giulio V. Dalla Riva;,citation_author=Marie-Josée Fortin;,citation_author=Dominique Gravel;,citation_author=Paulo R. Guimarães;,citation_author=David H. Hembry;,citation_author=Erica A. Newman;,citation_author=Jens M. Olesen;,citation_author=Mathias M. Pires;,citation_author=Justin D. Yeakel;,citation_author=Timothée Poisot;,citation_publication_date=2018-06-20;,citation_cover_date=2018-06-20;,citation_year=2018;,citation_fulltext_html_url=http://doi.wiley.com/10.1111/brv.12433;,citation_doi=10.1111/brv.12433;,citation_language=en;,citation_journal_title=Biological Reviews;">
+<meta name="citation_reference" content="citation_title=A general model for food web structure;,citation_author=Stefano Allesina;,citation_author=David Alonso;,citation_author=Mercedes Pascual;,citation_publication_date=2008-05-02;,citation_cover_date=2008-05-02;,citation_year=2008;,citation_fulltext_html_url=https://www.science.org/doi/full/10.1126/science.1156269;,citation_issue=5876;,citation_doi=10.1126/science.1156269;,citation_volume=320;,citation_journal_title=Science;">
+<meta name="citation_reference" content="citation_title=A roadmap towards predicting species interaction networks (across space and time);,citation_author=Tanya Strydom;,citation_author=Michael D. Catchen;,citation_author=Francis Banville;,citation_author=Dominique Caron;,citation_author=Gabriel Dansereau;,citation_author=Philippe Desjardins-Proulx;,citation_author=Norma R. Forero-Muñoz;,citation_author=Gracielle Higino;,citation_author=Benjamin Mercier;,citation_author=Andrew Gonzalez;,citation_author=Dominique Gravel;,citation_author=Laura Pollock;,citation_author=Timothée Poisot;,citation_publication_date=2021-11;,citation_cover_date=2021-11;,citation_year=2021;,citation_issue=1837;,citation_doi=10.1098/rstb.2021.0063;,citation_volume=376;,citation_journal_title=Philosophical Transactions of the Royal Society B: Biological Sciences;,citation_publisher=Royal Society;">
+<meta name="citation_reference" content="citation_title=A comparative study of ecological specialization estimators;,citation_author=Timothée Poisot;,citation_author=Elsa Canard;,citation_author=Nicolas Mouquet;,citation_author=Michael E. Hochberg;,citation_publication_date=2012-01-19;,citation_cover_date=2012-01-19;,citation_year=2012;,citation_fulltext_html_url=http://dx.doi.org/10.1111/j.2041-210X.2011.00174.x;,citation_issue=3;,citation_doi=10.1111/j.2041-210x.2011.00174.x;,citation_volume=3;,citation_language=en;,citation_journal_title=Methods in Ecology and Evolution;">
+<meta name="citation_reference" content="citation_title=Food Webs From the Small to the Large: The Robert H. MacArthur Award Lecture;,citation_author=Thomas W. Schoener;,citation_publication_date=1989-12;,citation_cover_date=1989-12;,citation_year=1989;,citation_fulltext_html_url=http://dx.doi.org/10.2307/1938088;,citation_issue=6;,citation_doi=10.2307/1938088;,citation_volume=70;,citation_language=en;,citation_journal_title=Ecology;">
+<meta name="citation_reference" content="citation_title=ATNr: Allometric Trophic Network models in R;,citation_author=Benoit Gauzens;,citation_author=Ulrich Brose;,citation_author=Eva Delmas;,citation_author=Emilio Berti;,citation_publication_date=2023;,citation_cover_date=2023;,citation_year=2023;,citation_fulltext_html_url=https://onlinelibrary.wiley.com/doi/abs/10.1111/2041-210X.14212;,citation_issue=11;,citation_doi=10.1111/2041-210X.14212;,citation_volume=14;,citation_language=en;,citation_journal_title=Methods in Ecology and Evolution;">
+<meta name="citation_reference" content="citation_title=Animal diversity and ecosystem functioning in dynamic food webs;,citation_author=Florian D. Schneider;,citation_author=Ulrich Brose;,citation_author=Björn C. Rall;,citation_author=Christian Guill;,citation_publication_date=2016-10-05;,citation_cover_date=2016-10-05;,citation_year=2016;,citation_fulltext_html_url=https://www.nature.com/articles/ncomms12718;,citation_issue=1;,citation_doi=10.1038/ncomms12718;,citation_volume=7;,citation_language=en;,citation_journal_title=Nature Communications;">
+</head>
+
+<body>
+
+<header id="title-block-header" class="quarto-title-block default toc-left page-columns page-full">
+  <div class="quarto-title-banner page-columns page-full">
+    <div class="quarto-title column-body">
+      <h1 class="title">PFIM configs</h1>
+          </div>
+
+    
+    <div class="quarto-title-meta-container">
+      <div class="quarto-title-meta-column-start">
+            <div class="quarto-title-meta-author">
+          <div class="quarto-title-meta-heading">Authors</div>
+          <div class="quarto-title-meta-heading">Affiliation</div>
+          
+                <div class="quarto-title-meta-contents">
+            <p class="author">Tanya Strydom <a href="mailto:t.strydom@sheffield.ac.uk" class="quarto-title-author-email"><i class="bi bi-envelope"></i></a> <a href="https://orcid.org/0000-0001-6067-1349" class="quarto-title-author-orcid"> <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAA2ZpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuMC1jMDYwIDYxLjEzNDc3NywgMjAxMC8wMi8xMi0xNzozMjowMCAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wTU09Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9tbS8iIHhtbG5zOnN0UmVmPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvc1R5cGUvUmVzb3VyY2VSZWYjIiB4bWxuczp4bXA9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC8iIHhtcE1NOk9yaWdpbmFsRG9jdW1lbnRJRD0ieG1wLmRpZDo1N0NEMjA4MDI1MjA2ODExOTk0QzkzNTEzRjZEQTg1NyIgeG1wTU06RG9jdW1lbnRJRD0ieG1wLmRpZDozM0NDOEJGNEZGNTcxMUUxODdBOEVCODg2RjdCQ0QwOSIgeG1wTU06SW5zdGFuY2VJRD0ieG1wLmlpZDozM0NDOEJGM0ZGNTcxMUUxODdBOEVCODg2RjdCQ0QwOSIgeG1wOkNyZWF0b3JUb29sPSJBZG9iZSBQaG90b3Nob3AgQ1M1IE1hY2ludG9zaCI+IDx4bXBNTTpEZXJpdmVkRnJvbSBzdFJlZjppbnN0YW5jZUlEPSJ4bXAuaWlkOkZDN0YxMTc0MDcyMDY4MTE5NUZFRDc5MUM2MUUwNEREIiBzdFJlZjpkb2N1bWVudElEPSJ4bXAuZGlkOjU3Q0QyMDgwMjUyMDY4MTE5OTRDOTM1MTNGNkRBODU3Ii8+IDwvcmRmOkRlc2NyaXB0aW9uPiA8L3JkZjpSREY+IDwveDp4bXBtZXRhPiA8P3hwYWNrZXQgZW5kPSJyIj8+84NovQAAAR1JREFUeNpiZEADy85ZJgCpeCB2QJM6AMQLo4yOL0AWZETSqACk1gOxAQN+cAGIA4EGPQBxmJA0nwdpjjQ8xqArmczw5tMHXAaALDgP1QMxAGqzAAPxQACqh4ER6uf5MBlkm0X4EGayMfMw/Pr7Bd2gRBZogMFBrv01hisv5jLsv9nLAPIOMnjy8RDDyYctyAbFM2EJbRQw+aAWw/LzVgx7b+cwCHKqMhjJFCBLOzAR6+lXX84xnHjYyqAo5IUizkRCwIENQQckGSDGY4TVgAPEaraQr2a4/24bSuoExcJCfAEJihXkWDj3ZAKy9EJGaEo8T0QSxkjSwORsCAuDQCD+QILmD1A9kECEZgxDaEZhICIzGcIyEyOl2RkgwAAhkmC+eAm0TAAAAABJRU5ErkJggg=="></a></p>
+          </div>
+                <div class="quarto-title-meta-contents">
+                    <p class="affiliation">
+                        School of Biosciences, University of Sheffield, Sheffield, UK
+                      </p>
+                  </div>
+                      <div class="quarto-title-meta-contents">
+            <p class="author">Andrew P. Beckerman <a href="https://orcid.org/0000-0002-7859-8394" class="quarto-title-author-orcid"> <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAA2ZpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuMC1jMDYwIDYxLjEzNDc3NywgMjAxMC8wMi8xMi0xNzozMjowMCAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wTU09Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9tbS8iIHhtbG5zOnN0UmVmPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvc1R5cGUvUmVzb3VyY2VSZWYjIiB4bWxuczp4bXA9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC8iIHhtcE1NOk9yaWdpbmFsRG9jdW1lbnRJRD0ieG1wLmRpZDo1N0NEMjA4MDI1MjA2ODExOTk0QzkzNTEzRjZEQTg1NyIgeG1wTU06RG9jdW1lbnRJRD0ieG1wLmRpZDozM0NDOEJGNEZGNTcxMUUxODdBOEVCODg2RjdCQ0QwOSIgeG1wTU06SW5zdGFuY2VJRD0ieG1wLmlpZDozM0NDOEJGM0ZGNTcxMUUxODdBOEVCODg2RjdCQ0QwOSIgeG1wOkNyZWF0b3JUb29sPSJBZG9iZSBQaG90b3Nob3AgQ1M1IE1hY2ludG9zaCI+IDx4bXBNTTpEZXJpdmVkRnJvbSBzdFJlZjppbnN0YW5jZUlEPSJ4bXAuaWlkOkZDN0YxMTc0MDcyMDY4MTE5NUZFRDc5MUM2MUUwNEREIiBzdFJlZjpkb2N1bWVudElEPSJ4bXAuZGlkOjU3Q0QyMDgwMjUyMDY4MTE5OTRDOTM1MTNGNkRBODU3Ii8+IDwvcmRmOkRlc2NyaXB0aW9uPiA8L3JkZjpSREY+IDwveDp4bXBtZXRhPiA8P3hwYWNrZXQgZW5kPSJyIj8+84NovQAAAR1JREFUeNpiZEADy85ZJgCpeCB2QJM6AMQLo4yOL0AWZETSqACk1gOxAQN+cAGIA4EGPQBxmJA0nwdpjjQ8xqArmczw5tMHXAaALDgP1QMxAGqzAAPxQACqh4ER6uf5MBlkm0X4EGayMfMw/Pr7Bd2gRBZogMFBrv01hisv5jLsv9nLAPIOMnjy8RDDyYctyAbFM2EJbRQw+aAWw/LzVgx7b+cwCHKqMhjJFCBLOzAR6+lXX84xnHjYyqAo5IUizkRCwIENQQckGSDGY4TVgAPEaraQr2a4/24bSuoExcJCfAEJihXkWDj3ZAKy9EJGaEo8T0QSxkjSwORsCAuDQCD+QILmD1A9kECEZgxDaEZhICIzGcIyEyOl2RkgwAAhkmC+eAm0TAAAAABJRU5ErkJggg=="></a></p>
+          </div>
+                <div class="quarto-title-meta-contents">
+                    <p class="affiliation">
+                        School of Biosciences, University of Sheffield, Sheffield, UK
+                      </p>
+                  </div>
+                    </div>
+        
+        <div class="quarto-title-meta">
+
+                      
+                <div>
+            <div class="quarto-title-meta-heading">Published</div>
+            <div class="quarto-title-meta-contents">
+              <p class="date">March 14, 2025</p>
+            </div>
+          </div>
+          
+                
+              </div>
+      </div>
+      <div class="quarto-title-meta-column-end quarto-other-formats-target">
+      <div class="quarto-alternate-formats"><div class="quarto-title-meta-heading">Other Formats</div><div class="quarto-title-meta-contents"><p><a href="index.docx"><i class="bi bi-file-word"></i>MS Word</a></p></div><div class="quarto-title-meta-contents"><p><a href="index.pdf"><i class="bi bi-file-pdf"></i>PDF (preprint)</a></p></div></div></div>
+    </div>
+
+    <div>
+      <div class="abstract">
+        <div class="block-title">Abstract</div>
+        <p>TODO</p>
+      </div>
+    </div>
+
+    <div>
+      <div class="keywords">
+        <div class="block-title">Keywords</div>
+        <p>food web, network construction</p>
+      </div>
+    </div>
+
+    <div class="quarto-other-links-text-target">
+    </div>  </div>
+</header><div id="quarto-content" class="page-columns page-rows-contents page-layout-article toc-left">
+<div id="quarto-sidebar-toc-left" class="sidebar toc-left">
+  <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Table of contents</h2>
+   
+  <ul>
+  <li><a href="#references" id="toc-references" class="nav-link active" data-scroll-target="#references">References</a></li>
+  </ul>
+</nav>
+</div>
+<div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
+</div>
+<main class="content quarto-banner-title-block" id="quarto-document-content">
+
+
+
+  
+
+
+<p><span class="citation" data-cites="dunhill2024">Dunhill et al. (<a href="#ref-dunhill2024" role="doc-biblioref">2024</a>)</span></p>
+<section id="references" class="level1 unnumbered">
+<h1 class="unnumbered">References</h1>
+<div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" role="list">
+<div id="ref-dunhill2024" class="csl-entry" role="listitem">
+Dunhill, Alexander M., Karolina Zarzyczny, Jack O. Shaw, Jed W. Atkinson, Crispin T. S. Little, and Andrew P. Beckerman. 2024. <span>“Extinction Cascades, Community Collapse, and Recovery Across a Mesozoic Hyperthermal Event.”</span> <em>Nature Communications</em> 15 (1): 8599. <a href="https://doi.org/10.1038/s41467-024-53000-2">https://doi.org/10.1038/s41467-024-53000-2</a>.
+</div>
+</div>
+</section>
+
+<div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" id="quarto-citation"><h2 class="anchored quarto-appendix-heading">Citation</h2><div><div class="quarto-appendix-secondary-label">BibTeX citation:</div><pre class="sourceCode code-with-copy quarto-appendix-bibtex"><code class="sourceCode bibtex">@online{strydom2025,
+  author = {Strydom, Tanya and P. Beckerman, Andrew},
+  title = {PFIM Configs},
+  date = {2025-03-14},
+  langid = {en},
+  abstract = {TODO}
+}
+</code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre><div class="quarto-appendix-secondary-label">For attribution, please cite this work as:</div><div id="ref-strydom2025" class="csl-entry quarto-appendix-citeas" role="listitem">
+Strydom, Tanya, and Andrew P. Beckerman. 2025. <span>“PFIM
+Configs.”</span> TBD. March 14, 2025.
+</div></div></section></div></main>
+<!-- /main column -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const isCodeAnnotation = (el) => {
+    for (const clz of el.classList) {
+      if (clz.startsWith('code-annotation-')) {                     
+        return true;
+      }
+    }
+    return false;
+  }
+  const onCopySuccess = function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  }
+  const getTextToCopy = function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+    text: getTextToCopy
+  });
+  clipboard.on('success', onCopySuccess);
+  if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+    // For code content inside modals, clipBoardJS needs to be initialized with a container option
+    // TODO: Check when it could be a function (https://github.com/zenorocha/clipboard.js/issues/860)
+    const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+      text: getTextToCopy,
+      container: window.document.getElementById('quarto-embedded-source-code-modal')
+    });
+    clipboardModal.on('success', onCopySuccess);
+  }
+    var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+    var mailtoRegex = new RegExp(/^mailto:/);
+      var filterRegex = new RegExp('/' + window.location.host + '/');
+    var isInternal = (href) => {
+        return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+    }
+    // Inspect non-navigation links and adorn them if external
+ 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+    for (var i=0; i<links.length; i++) {
+      const link = links[i];
+      if (!isInternal(link.href)) {
+        // undo the damage that might have been done by quarto-nav.js in the case of
+        // links that we want to consider external
+        if (link.dataset.originalHref !== undefined) {
+          link.href = link.dataset.originalHref;
+        }
+      }
+    }
+  function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+    const config = {
+      allowHTML: true,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start',
+    };
+    if (contentFn) {
+      config.content = contentFn;
+    }
+    if (onTriggerFn) {
+      config.onTrigger = onTriggerFn;
+    }
+    if (onUntriggerFn) {
+      config.onUntrigger = onUntriggerFn;
+    }
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      if (note) {
+        return note.innerHTML;
+      } else {
+        return "";
+      }
+    });
+  }
+  const xrefs = window.document.querySelectorAll('a.quarto-xref');
+  const processXRef = (id, note) => {
+    // Strip column container classes
+    const stripColumnClz = (el) => {
+      el.classList.remove("page-full", "page-columns");
+      if (el.children) {
+        for (const child of el.children) {
+          stripColumnClz(child);
+        }
+      }
+    }
+    stripColumnClz(note)
+    if (id === null || id.startsWith('sec-')) {
+      // Special case sections, only their first couple elements
+      const container = document.createElement("div");
+      if (note.children && note.children.length > 2) {
+        container.appendChild(note.children[0].cloneNode(true));
+        for (let i = 1; i < note.children.length; i++) {
+          const child = note.children[i];
+          if (child.tagName === "P" && child.innerText === "") {
+            continue;
+          } else {
+            container.appendChild(child.cloneNode(true));
+            break;
+          }
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(container);
+        }
+        return container.innerHTML
+      } else {
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        return note.innerHTML;
+      }
+    } else {
+      // Remove any anchor links if they are present
+      const anchorLink = note.querySelector('a.anchorjs-link');
+      if (anchorLink) {
+        anchorLink.remove();
+      }
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(note);
+      }
+      // TODO in 1.5, we should make sure this works without a callout special case
+      if (note.classList.contains("callout")) {
+        return note.outerHTML;
+      } else {
+        return note.innerHTML;
+      }
+    }
+  }
+  for (var i=0; i<xrefs.length; i++) {
+    const xref = xrefs[i];
+    tippyHover(xref, undefined, function(instance) {
+      instance.disable();
+      let url = xref.getAttribute('href');
+      let hash = undefined; 
+      if (url.startsWith('#')) {
+        hash = url;
+      } else {
+        try { hash = new URL(url).hash; } catch {}
+      }
+      if (hash) {
+        const id = hash.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note !== null) {
+          try {
+            const html = processXRef(id, note.cloneNode(true));
+            instance.setContent(html);
+          } finally {
+            instance.enable();
+            instance.show();
+          }
+        } else {
+          // See if we can fetch this
+          fetch(url.split('#')[0])
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.getElementById(id);
+            if (note !== null) {
+              const html = processXRef(id, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      } else {
+        // See if we can fetch a full url (with no hash to target)
+        // This is a special case and we should probably do some content thinning / targeting
+        fetch(url)
+        .then(res => res.text())
+        .then(html => {
+          const parser = new DOMParser();
+          const htmlDoc = parser.parseFromString(html, "text/html");
+          const note = htmlDoc.querySelector('main.content');
+          if (note !== null) {
+            // This should only happen for chapter cross references
+            // (since there is no id in the URL)
+            // remove the first header
+            if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+              note.children[0].remove();
+            }
+            const html = processXRef(null, note);
+            instance.setContent(html);
+          } 
+        }).finally(() => {
+          instance.enable();
+          instance.show();
+        });
+      }
+    }, function(instance) {
+    });
+  }
+      let selectedAnnoteEl;
+      const selectorForAnnotation = ( cell, annotation) => {
+        let cellAttr = 'data-code-cell="' + cell + '"';
+        let lineAttr = 'data-code-annotation="' +  annotation + '"';
+        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+        return selector;
+      }
+      const selectCodeLines = (annoteEl) => {
+        const doc = window.document;
+        const targetCell = annoteEl.getAttribute("data-target-cell");
+        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+        const lineIds = lines.map((line) => {
+          return targetCell + "-" + line;
+        })
+        let top = null;
+        let height = null;
+        let parent = null;
+        if (lineIds.length > 0) {
+            //compute the position of the single el (top and bottom and make a div)
+            const el = window.document.getElementById(lineIds[0]);
+            top = el.offsetTop;
+            height = el.offsetHeight;
+            parent = el.parentElement.parentElement;
+          if (lineIds.length > 1) {
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+            height = bottom - top;
+          }
+          if (top !== null && height !== null && parent !== null) {
+            // cook up a div (if necessary) and position it 
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            div.style.top = top - 2 + "px";
+            div.style.height = height + 4 + "px";
+            div.style.left = 0;
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            gutterDiv.style.top = top - 2 + "px";
+            gutterDiv.style.height = height + 4 + "px";
+          }
+          selectedAnnoteEl = annoteEl;
+        }
+      };
+      const unselectCodeLines = () => {
+        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+        elementsIds.forEach((elId) => {
+          const div = window.document.getElementById(elId);
+          if (div) {
+            div.remove();
+          }
+        });
+        selectedAnnoteEl = undefined;
+      };
+        // Handle positioning of the toggle
+    window.addEventListener(
+      "resize",
+      throttle(() => {
+        elRect = undefined;
+        if (selectedAnnoteEl) {
+          selectCodeLines(selectedAnnoteEl);
+        }
+      }, 10)
+    );
+    function throttle(fn, ms) {
+    let throttle = false;
+    let timer;
+      return (...args) => {
+        if(!throttle) { // first call gets through
+            fn.apply(this, args);
+            throttle = true;
+        } else { // all the others get throttled
+            if(timer) clearTimeout(timer); // cancel #2
+            timer = setTimeout(() => {
+              fn.apply(this, args);
+              timer = throttle = false;
+            }, ms);
+        }
+      };
+    }
+      // Attach click handler to the DT
+      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+      for (const annoteDlNode of annoteDls) {
+        annoteDlNode.addEventListener('click', (event) => {
+          const clickedEl = event.target;
+          if (clickedEl !== selectedAnnoteEl) {
+            unselectCodeLines();
+            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+            if (activeEl) {
+              activeEl.classList.remove('code-annotation-active');
+            }
+            selectCodeLines(clickedEl);
+            clickedEl.classList.add('code-annotation-active');
+          } else {
+            // Unselect the line
+            unselectCodeLines();
+            clickedEl.classList.remove('code-annotation-active');
+          }
+        });
+      }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+</div> <!-- /content -->
+
+
+
+
+</body></html>
