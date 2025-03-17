@@ -9,7 +9,7 @@ import Random
 Random.seed!(66)
 
 # get the name of all communities
-matrix_names = readdir("../data/clean/trait_maximal")
+matrix_names = readdir("data/clean/maximal")
 matrix_names = replace.(matrix_names, ".csv" => "")
 
 # feeding rules
@@ -21,77 +21,97 @@ rules = [
     max min
 ]
 
-# diff datasets
-model_names = ["pfim", "pfim_size", "pfim_basal", "pfim_trophic", "pfim_with_scav"]
+networks = DataFrame(
+    node = String[],
+    location = String[],
+    time = Any[],
+    rules = String[],
+    basal = String[],
+    downsample = String[],
+    network = Any[],
+);
 
-for j in eachindex(model_names)
+for i in eachindex(matrix_names)
 
-    # run PFIM with and without downsampling with both maximal and minimum rules
+    file_name = matrix_names[i]
+    # get relevant info from slug
+    str_cats = split(file_name, r"_")
+    
     for k in axes(rules, 1)
+        
         feeding_rules = rules[2, k]
         feeding = rules[1, k]
+    
+        # import data frame
+        df = DataFrame(CSV.File.(joinpath("data/clean/", feeding, "$file_name.csv")))
 
-        topology = topo_df()
+        # some manipulating of the data frame
+        if occursin("guild", file_name)
+            rename!(df, :guild => :species)
+        end
+        df[!, :size] = convert.(String, df[!, :size])
+        df[!, :tiering] = convert.(String, df[!, :tiering])
+        df[!, :motility] = convert.(String, df[!, :motility])
+        df[!, :feeding] = convert.(String, df[!, :feeding])
+        df[!, :species] = convert.(String, df[!, :species])
+        # remove unwanted cols
+        traits = unique(collect(feeding_rules.trait_type_resource))
+        traits = convert.(String, traits)
+        push!(traits, "species")
+        push!(traits, "time_pre_during_post")
+        select!(df, traits)
 
-        for i in eachindex(matrix_names)
-            # get data frame
-            file_name = matrix_names[i]
-            df = DataFrame(
-                CSV.File.(joinpath("../data/clean/trait_maximal", "$file_name.csv"),),
-            )
+        for time = 1:5
+            # select correct time period
+            pfim_df = filter(df -> occursin.("$time", df.time_pre_during_post), df)
 
-            model = model_names[j]
+            # add zooplankton node
+        push!(
+            pfim_df,
+            ["zooplankton" "zooplankton" "zooplankton" "zooplankton" "zooplankton" "$j"],
+        )
 
-            # add/remove nodes based on model/dataset
-            if model == "pfim_with_scav"
-                # remove only basal node
-                filter!(row -> row.feeding ∉ ["primary_feeding"], df)
-            elseif model == "pfim_basal"
-                # remove parasites and scavengers
-                filter!(row -> row.feeding ∉ ["parasitic", "scavenger"], df)
-            else
-                # remove scavenger, parasitic, primary species
-                filter!(
-                    row -> row.feeding ∉ ["parasitic", "scavenger", "primary_feeding"],
-                    df,
-                )
-            end
+            for basal ∈ [true, false]
 
-            for downsample ∈ [true, false]
-
-                d = model_summary(
-                    df,
-                    file_name,
-                    "pfim";
-                    feeding_rules = feeding_rules,
-                    downsample = downsample,
-                )
-
-                if downsample == true
-                    d[:model] = join([model, feeding, "downsample"], "_")
-                    push!(topology, d)
-                else
-                    d[:model] = join([model, feeding], "_")
-                    push!(topology, d)
+                if basal == true
+                    # add primary node
+                    push!(pfim_df, ["primary" "primary" "primary" "primary" "primary" "$j"])
                 end
+                
+                N = pfim.PFIM(pfim_df, feeding_rules)
+
+                d = Dict{Symbol,Any}(
+                       :time => time,
+                       :location => str_cats[1],
+                       :node => str_cats[4],
+                       :network => N,
+                       :downsample => "false",
+                       :rules => string(feeding),
+                       :basal => string(basal),
+                       )
+   
+                       push!(networks, d)
+   
+                   if richness(N) > 0
+   
+                       N = pfim.PFIM(pfim_df, feeding_rules; downsample = true)
+   
+                       d = Dict{Symbol,Any}(
+                       :time => time,
+                       :location => str_cats[1],
+                       :node => str_cats[4],
+                       :network => N,
+                       :downsample => "true",
+                       :rules => string(feeding),
+                       :basal => string(basal),
+                       )
+   
+                       push!(networks, d)
+   
+               end
+
             end
         end
-        # write summaries as .csv
-        CSV.write(
-            join([
-                "../data/processed/topology/",
-                join(["topology", "$model", "$feeding"], "_"),
-                ".csv",
-            ]),
-            topology[:, setdiff(names(topology), ["network"])],
-        )
-        # write networks as object
-        save_object(
-            joinpath(
-                "../data/processed/networks/",
-                join(["$model", "$feeding", "_networks.jlds"], "_"),
-            ),
-            topology[:, ["id", "model", "network"]],
-        )
     end
 end
+
