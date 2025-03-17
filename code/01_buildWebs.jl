@@ -114,3 +114,9 @@ for i in eachindex(matrix_names)
         end
     end
 end
+
+# write networks as object
+save_object(
+    "data/output/networks/networks.jlds",
+    networks,
+)
