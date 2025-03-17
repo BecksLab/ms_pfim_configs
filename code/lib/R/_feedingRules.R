@@ -5,8 +5,7 @@ library(tidyverse)
 # set path to code sub dir
 setwd(here())
 
-df <- read.csv(here("data/clean/feeding_rules.csv")) %>%
-  mutate_all(~str_replace_all(., "nonmotile", "non_motile")) %>%
+df <- read.csv(here("data/raw/feeding_rules.csv")) %>%
   mutate_all(~str_replace_all(., "-", "_"))
 
 traits_classes <- df %>%
@@ -26,8 +25,8 @@ df_min <- df %>%
   mutate(trait_resource = case_when(trait_resource == "shallow-infaunal" ~ "infaunal",
                                     trait_resource == "deep-infaunal" ~ "infaunal",
                                     str_detect(trait_resource, "^.*epifaunal.*$") ~ "epifaunal",
-                                    trait_resource == "non-motile_attached" ~ "attached",
-                                    trait_resource == "non-motile_byssate" ~ "attached",
+                                    trait_resource == "nonmotile_attached" ~ "attached",
+                                    trait_resource == "nonmotile_byssate" ~ "attached",
                                     str_detect(trait_resource, "^.*deposit.*$") ~ "herbivore",
                                     str_detect(trait_resource, "^.*suspension.*$") ~ "herbivore",
                                     str_detect(trait_resource, "grazer_herbivore") ~ "herbivore",
@@ -39,8 +38,8 @@ df_min <- df %>%
          trait_consumer = case_when(trait_consumer == "shallow-infaunal" ~ "infaunal",
                                     trait_consumer == "deep-infaunal" ~ "infaunal",
                                     str_detect(trait_consumer, "^.*epifaunal.*$") ~ "epifaunal",
-                                    trait_consumer == "non-motile_attached" ~ "attached",
-                                    trait_consumer == "non-motile_byssate" ~ "attached",
+                                    trait_consumer == "nonmotile_attached" ~ "attached",
+                                    trait_consumer == "nonmotile_byssate" ~ "attached",
                                     str_detect(trait_consumer, "^.*deposit.*$") ~ "herbivore",
                                     str_detect(trait_consumer, "^.*suspension.*$") ~ "herbivore",
                                     str_detect(trait_consumer, "grazer_herbivore") ~ "herbivore",
