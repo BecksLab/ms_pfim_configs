@@ -23,7 +23,6 @@ for (i in 1:length(file_list)) {
 # loop through all files (baically move to different folder)
 for (i in 1:length(file_list)) {
   read.csv(file_list[i]) %>%
-    select(c(feeding, motility, tiering, size, time_pre_during_post)) %>%
     mutate(feeding = case_when(feeding == "grazer_herbivore" ~ "herbivore",
                                str_detect(feeding, "^.*deposit.*$") ~ "herbivore",
                                str_detect(feeding, "^.*suspension.*$") ~ "herbivore",
