@@ -51,7 +51,7 @@ ggplot() +
             colour = "black") +
   theme_classic()
 
-ggsave("data/output/figures/pca.png",
+ggsave("images/pca.png",
        width = 4500,
        height = 3500,
        units = "px",
